@@ -4,4 +4,6 @@
 src_obj/
 bin/
 
+# bins
 woody
+woody_woodpacker

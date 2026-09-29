@@ -13,6 +13,8 @@ int main(int argc, char **argv)
     if (validate_elf(&elf))
         return (free_elf(&elf), 1);
 
+    // segment validation here
+    
     // Imagine the generation of the key here
     // Imagine the injection here
     // Imagine the encryption here
