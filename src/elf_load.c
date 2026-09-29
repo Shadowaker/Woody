@@ -2,6 +2,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include "libft.h"
+#include "woody.h"
 
 
 int load_file(char *path, t_elf *elf)
@@ -27,12 +29,12 @@ int load_file(char *path, t_elf *elf)
     if (size > (off_t)(1UL << 30))
     {
         close(fd);
-        fatal_str("File too large or not a regular file\n")
+        fatal_str("File too large or not a regular file\n");
     }
     
     elf->orig_size = (size_t) size;
     elf->size = (size_t) size;
-    elf->capacity = (size_t) size + 2 * PAGE_SIZE + 0x10000    // 0x10000 == 65536, a very big number
+    elf->capacity = (size_t) size + 2 * PAGE_SIZE + 0x10000;    // 0x10000 == 65536, a very big number
     elf->buf = e_malloc(elf->capacity);
     
     off = 0;
@@ -49,10 +51,12 @@ int load_file(char *path, t_elf *elf)
 			break ;
 		off += (size_t)r;
     }
+
     close(fd);
     if (off != elf->size)
     {
         free(elf->buf);
         fatal_str("Unexpected end of file.\n");
     }
+    return (0);
 }

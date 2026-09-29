@@ -43,5 +43,12 @@ typedef struct s_elf
 	int			is_pie;     // ET_DYN
 }	t_elf;
 
+int		load_file(char *path, t_elf *elf);
+int 	validate_elf(const t_elf *elf);
+void	free_elf(t_elf *elf);
+
+void	fatal(const char *msg);
+void	fatal_str(const char *msg);
+void	*e_malloc(size_t n);
 
 #endif
