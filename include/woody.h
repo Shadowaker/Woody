@@ -7,6 +7,7 @@
 
 # define WOODY_OUTPUT   "woody"
 # define PAGE_SIZE      0x1000UL	// 4096	
+# define WOODY_KEY_LEN	8			// Temporary value
 
 /* 
 	t_elf holds the working copy of the target binary. `buf` is a heap copy of the
@@ -47,6 +48,7 @@ int		load_file(char *path, t_elf *elf);
 int 	validate_elf(const t_elf *elf);
 int 	locate_segments(t_elf *elf);
 void	free_elf(t_elf *elf);
+int		gen_key(uint8_t *key, size_t len);
 
 void	fatal(const char *msg);
 void	fatal_str(const char *msg);

@@ -4,7 +4,7 @@ CC        = gcc
 CFLAGS    = -Wall -Wextra -Werror -I include -I libft
 
 SRC_DIR   = src
-SRCS      = main.c error.c elf_load.c elf_validate.c free_elf.c elf_segments.c
+SRCS      = main.c error.c elf_load.c elf_validate.c free_elf.c elf_segments.c key.c
 OBJS      = $(addprefix $(SRC_DIR)/, $(SRCS:.c=.o))
 
 LIBFT_DIR = libft

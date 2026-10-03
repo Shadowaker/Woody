@@ -5,6 +5,7 @@
 int main(int argc, char **argv)
 {
     t_elf   elf;
+    uint8_t	key[WOODY_KEY_LEN];
 
     if (argc != 2)
         return (fputs("Executable argument missing\n", stderr), 1);
@@ -15,8 +16,9 @@ int main(int argc, char **argv)
     
     if (locate_segments(&elf))
         return (free_elf(&elf), 1);
-    
-    // Imagine the generation of the key here
+
+    gen_key(key, WOODY_KEY_LEN);
+
     // Imagine the injection here
     // Imagine the encryption here
     // Image the binary creation here
