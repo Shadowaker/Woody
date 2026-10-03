@@ -12,8 +12,9 @@ int main(int argc, char **argv)
     load_file(argv[1], &elf);
     if (validate_elf(&elf))
         return (free_elf(&elf), 1);
-
-    // segment validation here
+    
+    if (locate_segments(&elf))
+        return (free_elf(&elf), 1);
     
     // Imagine the generation of the key here
     // Imagine the injection here

@@ -45,6 +45,7 @@ typedef struct s_elf
 
 int		load_file(char *path, t_elf *elf);
 int 	validate_elf(const t_elf *elf);
+int 	locate_segments(t_elf *elf);
 void	free_elf(t_elf *elf);
 
 void	fatal(const char *msg);
